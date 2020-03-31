@@ -10,7 +10,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @RestController
-public class Logincontroller {
+public class LoginController {
 
     @Autowired
     private Personmapper personmapper;
@@ -18,11 +18,6 @@ public class Logincontroller {
     @PostMapping("/register")
     public void register(@RequestBody Person person){
         personmapper.register(person);
-    }
-    @PostMapping("/personID")
-    public Integer cha(@RequestBody Map name){
-        String username = name.get("value").toString();
-        return personmapper.chaxun(username);
     }
 
     @PostMapping("/login")
