@@ -14,6 +14,7 @@ public class Person {
     private String password;
     private String photo_v;
     private String picture;
+    private int age;
 
     public int getPid() {
         return Pid;
@@ -21,6 +22,14 @@ public class Person {
 
     public void setPid(int pid) {
         Pid = pid;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int Age) {
+        age = Age;
     }
 
     public String getName() {

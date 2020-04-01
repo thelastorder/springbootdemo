@@ -7,8 +7,8 @@
         insert into person(name,val,phone,password) values (#{name},#{val},#{phone},#{password})
     </insert>
 
-    <select id="chaxun" resultType="Integer">
-        select Pid from person where name =#{name}
+    <select id="person_Info" resultType="com.webdemo.springbootdemo.bean.Person">
+        select * from person where name =#{name}
     </select>
 
     <select id="login" resultType="String">
