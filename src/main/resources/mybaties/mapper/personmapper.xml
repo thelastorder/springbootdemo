@@ -14,4 +14,8 @@
     <select id="login" resultType="String">
         select password from person where name =#{username}
     </select>
+
+    <update id="person_Change">
+        update person set val =#{val},age =#{age},sex =#{sex} where name =#{name}
+    </update>
 </mapper>

@@ -7,4 +7,6 @@ public interface Personmapper {
     public Person person_Info(String name);
 
     public String login(String username);
+
+    public void person_Change(Person person);
 }

@@ -15,7 +15,12 @@ public class PersonController {
 
     @PostMapping("/person")
     public Person Person_Info(@RequestBody Map map){
-        String username = map.get("username").toString();
+        String username = map.get("name").toString();
         return personmapper.person_Info(username);
+    }
+
+    @PostMapping("/person_c")
+    public void Person_Change(@RequestBody Person person){
+        personmapper.person_Change(person);
     }
 }
