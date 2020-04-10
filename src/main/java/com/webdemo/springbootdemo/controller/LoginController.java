@@ -28,11 +28,15 @@ public class LoginController {
         String password = person.getPassword();
         maplog.put(username,password);
         if(password.equals(personmapper.login(username))){
+            Person person1 = personmapper.person_Info(username);
             JwtUtils jwtUtils = new JwtUtils();
             String token = jwtUtils.sign(maplog);
             map.put("code", "200");
             map.put("message","登录成功");
             map.put("token", token);
+            map.put("card", person1.getCard());
+            map.put("pid", person1.getPid());
+            map.put("name", person1.getName());
             return map;
         }else{
             map.put("code", "403");
