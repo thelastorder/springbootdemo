@@ -4,6 +4,33 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.webdemo.springbootdemo.mapper.Coursemapper">
     <select id="fCourse" resultType="com.webdemo.springbootdemo.bean.Study">
-        select * from study where stuNum =#{id}
+        select * from study where Sname =#{name}
+    </select>
+
+    <select id="findCourse" parameterType="java.util.Map" resultType="map">
+        select * from course where 1=1
+        <if test="name!='' and name != null">
+        and name like '%' #{name} '%'
+        </if>
+        <if test="type!='' and type != null">
+            and type = #{type}
+        </if>
+        <if test="ranked !='' and ranked != null">
+            and ranked = #{ranked}
+        </if>
+        LIMIT #{first}, #{last}
+    </select>
+
+    <select id="CourseNum" parameterType="java.util.Map" resultType="Integer">
+        select count(*) as num from course where 1=1
+        <if test="name!='' and name != null">
+            and name like '%' #{name} '%'
+        </if>
+        <if test="type!='' and type != null">
+            and type = #{type}
+        </if>
+        <if test="ranked !='' and ranked != null">
+            and ranked = #{ranked}
+        </if>
     </select>
 </mapper>

@@ -5,11 +5,12 @@ import java.sql.Timestamp;
 public class Study {
     private int Sid;
     private int Cid;
-    private int StuNum;
-    private int teaNum;
     private Timestamp time;
     private int Ctime;
     private int active;
+    private String Sname;
+    private String Tname;
+    private String Cname;
 
     public int getSid() {
         return Sid;
@@ -17,6 +18,30 @@ public class Study {
 
     public void setSid(int sid) {
         Sid = sid;
+    }
+
+    public String getSname() {
+        return Sname;
+    }
+
+    public void setSname(String sname) {
+        Sname = sname;
+    }
+
+    public String getTname() {
+        return Tname;
+    }
+
+    public void setTname(String tname) {
+        Tname = tname;
+    }
+
+    public String getCname() {
+        return Cname;
+    }
+
+    public void setCname(String cname) {
+        Cname = cname;
     }
 
     public int getCid() {
@@ -27,21 +52,6 @@ public class Study {
         Cid = cid;
     }
 
-    public int getStuNum() {
-        return StuNum;
-    }
-
-    public void setStuNum(int stuNum) {
-        StuNum = stuNum;
-    }
-
-    public int getTeaNum() {
-        return teaNum;
-    }
-
-    public void setTeaNum(int teaNum) {
-        this.teaNum = teaNum;
-    }
 
     public Timestamp getTime() {
         return time;
