@@ -21,7 +21,6 @@ public class CourseController {
     public List<Study> firstCourse(@RequestBody Map map){
         String name = map.get("name").toString();
         List<Study> study = coursemapper.fCourse(name);
-
         return study;
     }
 
@@ -37,5 +36,10 @@ public class CourseController {
         map.put("first",first);
         map.put("last",last);
       return coursemapper.findCourse(map);
+    }
+
+    @PostMapping("addCourse")
+    public void addCourse(@RequestBody Course course){
+        coursemapper.addCourse(course);
     }
 }

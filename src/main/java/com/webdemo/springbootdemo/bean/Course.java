@@ -4,7 +4,7 @@ public class Course {
     private int Cid;
     private String name;
     private String type;
-    private String rank;
+    private String ranked;
     private String teacher;
     private int flag;
     private String picture;
@@ -33,12 +33,12 @@ public class Course {
         this.type = type;
     }
 
-    public String getRank() {
-        return rank;
+    public String getRanked() {
+        return ranked;
     }
 
-    public void setRank(String rank) {
-        this.rank = rank;
+    public void setRanked(String ranked) {
+        this.ranked = ranked;
     }
 
     public String getTeacher() {

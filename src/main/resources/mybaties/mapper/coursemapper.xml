@@ -33,4 +33,8 @@
             and ranked = #{ranked}
         </if>
     </select>
+
+    <insert id="addCourse">
+        insert into course (name,type,ranked,teacher,flag) values (#{name}, #{type}, #{ranked}, #{teacher}, 1);
+    </insert>
 </mapper>
