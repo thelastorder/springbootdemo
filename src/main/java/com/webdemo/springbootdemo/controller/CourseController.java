@@ -24,12 +24,19 @@ public class CourseController {
         return study;
     }
 
-    @PostMapping("courseNum")
+    @PostMapping("/courseNum")
     public Integer  CourseNum(@RequestBody Map map){
         return coursemapper.CourseNum(map);
     }
 
-    @PostMapping("course")
+    @PostMapping("/myCourseNum")
+    public Integer myCourseNum(@RequestBody Map map){
+        String name = map.get("name").toString();
+        int active =Integer.parseInt(map.get("active").toString());
+        return coursemapper.myCourseNum(name,active);
+    }
+
+    @PostMapping("/course")
     public List<Map>  findCourse(@RequestBody Map<String,Object> map){
         int first = (Integer.parseInt(map.get("num").toString())-1)*3;
         int last = (Integer.parseInt(map.get("num").toString()))*3;
@@ -38,7 +45,17 @@ public class CourseController {
       return coursemapper.findCourse(map);
     }
 
-    @PostMapping("addCourse")
+    @PostMapping("/myCourseInfo")
+    public List<Map>  myCourse(@RequestBody Map<String,Object> map){
+        map.put("active",Integer.parseInt(map.get("active").toString()));
+        int first = (Integer.parseInt(map.get("number").toString())-1)*3;
+        int last = (Integer.parseInt(map.get("number").toString()))*3;
+        map.put("first",first);
+        map.put("last",last);
+        return coursemapper.myCourse(map);
+    }
+
+    @PostMapping("/addCourse")
     public void addCourse(@RequestBody Course course){
         coursemapper.addCourse(course);
     }

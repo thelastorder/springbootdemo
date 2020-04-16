@@ -34,6 +34,14 @@
         </if>
     </select>
 
+    <select id="myCourseNum" resultType="Integer">
+        select count(*) as num from study where Sname = #{name} and active = #{active}
+    </select>
+
+    <select id="myCourse" parameterType="java.util.Map" resultType="map">
+        select * from study where Sname = #{name} and active = #{active} LIMIT #{first}, #{last}
+    </select>
+
     <insert id="addCourse">
         insert into course (name,type,ranked,teacher,flag) values (#{name}, #{type}, #{ranked}, #{teacher}, 1);
     </insert>

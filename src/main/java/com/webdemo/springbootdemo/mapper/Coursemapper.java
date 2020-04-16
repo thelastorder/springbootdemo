@@ -14,4 +14,8 @@ public interface Coursemapper {
     public Integer CourseNum(Map map);
 
     public void addCourse(Course course);
+
+    public Integer myCourseNum(String name,int active);
+
+    public List<Map> myCourse(Map map);
 }
