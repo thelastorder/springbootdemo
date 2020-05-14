@@ -19,6 +19,16 @@ public class ApplyController {
         return applymapper.applyInfo(name);
     }
 
+    @GetMapping("/infoUnread")
+    public List<Apply> infoUnread(@RequestParam("name") String name){
+        return applymapper.applyUnread(name);
+    }
+
+    @GetMapping("/infoRead")
+    public List<Apply> infoRead(@RequestParam("name") String name){
+        return applymapper.applyRead(name);
+    }
+
     @PostMapping("/applyCourse")
     public void applyCourse(@RequestBody Map map){
         Apply apply = new Apply();
@@ -28,6 +38,7 @@ public class ApplyController {
         apply.setCname(map.get("name").toString());
         apply.setReason(1);
         apply.setState(0);
+        apply.setTime(map.get("time").toString());
 
         applymapper.applyCourse(apply);
     }

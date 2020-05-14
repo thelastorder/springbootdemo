@@ -21,14 +21,11 @@ public class ImageUpload {
 
     @PostMapping("/image")
     public String upload(@RequestParam("file") MultipartFile file) throws IOException{
-        System.out.println(file);
         return singleFileUpload(file);
     }
 
     public static String singleFileUpload(MultipartFile pc1 ) throws IOException {
-        // logger.debug("传入的文件参数：{}", JSON.toJSONString(file, true));
         if (Objects.isNull(pc1) || pc1.isEmpty()) {//判断非空
-            // logger.error("文件为空");
             return "文件为空，请重新上传";
         }
         try {
@@ -49,7 +46,7 @@ public class ImageUpload {
             Thumbnails.of(pc1.getInputStream()).size(200, 200)    //写入
                     .outputQuality(0.8f).toFile(path+"/"+relativeAddr);
             //logger.debug("文件写入成功...");
-            return Paths.get(path + "/" + relativeAddr).toString();
+            return UPLOAD_FOLDER + relativeAddr;
         } catch (IOException e) {
             e.printStackTrace();
             return "后端异常...";

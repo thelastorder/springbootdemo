@@ -11,6 +11,15 @@ public class Study {
     private String Sname;
     private String Tname;
     private String Cname;
+    private String ordertime;
+
+    public String getOrdertime() {
+        return ordertime;
+    }
+
+    public void setOrdertime(String ordertime) {
+        this.ordertime = ordertime;
+    }
 
     public int getSid() {
         return Sid;

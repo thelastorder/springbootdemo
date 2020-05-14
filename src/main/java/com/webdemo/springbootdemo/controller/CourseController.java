@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.sql.Timestamp;
 import java.util.List;
 import java.util.Map;
 
@@ -34,6 +35,13 @@ public class CourseController {
         String name = map.get("name").toString();
         int active =Integer.parseInt(map.get("active").toString());
         return coursemapper.myCourseNum(name,active);
+    }
+
+    @PostMapping("/orderCourse")
+    public void orderCourse(@RequestBody Map map){
+        String date = map.get("ordertime").toString();
+        int sid = Integer.parseInt(map.get("Sid").toString());
+        coursemapper.orderCourse(date ,sid);
     }
 
     @PostMapping("/course")

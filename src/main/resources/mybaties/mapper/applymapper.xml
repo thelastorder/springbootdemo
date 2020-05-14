@@ -4,11 +4,19 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.webdemo.springbootdemo.mapper.Applymapper">
     <insert id="applyCourse">
-        insert into apply(ID,Cid,cname,appName,nowName,reason,state)
-        values (#{id},#{Cid},#{cname},#{appName},#{nowName},#{reason},#{state})
+        insert into apply(ID,Cid,cname,appName,nowName,reason,state,time)
+        values (#{id},#{Cid},#{cname},#{appName},#{nowName},#{reason},#{state},#{time})
     </insert>
 
     <select id="applyInfo" resultType="com.webdemo.springbootdemo.bean.Apply">
         select * from apply where appName = #{name}
+    </select>
+
+    <select id="applyUnread" resultType="com.webdemo.springbootdemo.bean.Apply">
+        select * from apply where nowName = #{name} and state = 0
+    </select>
+
+    <select id="applyRead" resultType="com.webdemo.springbootdemo.bean.Apply">
+        select * from apply where nowName = #{name} and state > 0
     </select>
 </mapper>

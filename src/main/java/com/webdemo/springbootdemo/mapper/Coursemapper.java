@@ -3,6 +3,7 @@ package com.webdemo.springbootdemo.mapper;
 import com.webdemo.springbootdemo.bean.Course;
 import com.webdemo.springbootdemo.bean.Study;
 
+import java.sql.Timestamp;
 import java.util.List;
 import java.util.Map;
 
@@ -18,4 +19,6 @@ public interface Coursemapper {
     public Integer myCourseNum(String name,int active);
 
     public List<Map> myCourse(Map map);
+
+    public void orderCourse(String  date,int Sid);
 }

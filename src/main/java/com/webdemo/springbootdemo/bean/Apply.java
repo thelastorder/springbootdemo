@@ -8,6 +8,15 @@ public class Apply {
     private String nowName;
     private int reason;
     private int state;
+    private String time;
+
+    public String getTime() {
+        return time;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
+    }
 
     public int getId() {
         return id;
